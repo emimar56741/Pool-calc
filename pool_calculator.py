@@ -3,34 +3,36 @@ import streamlit as st
 from PIL import Image
 import random
 
-# Configure page
 st.set_page_config(page_title="Clear Pool Co", layout="centered")
 
-# Refined CSS for modern, mobile-friendly, clean layout
+# High-contrast fix for all mobile readability issues
 st.markdown("""
     <style>
     body {
-        background-color: #f3f4f6;
+        background-color: #ffffff;
         font-family: 'Segoe UI', sans-serif;
-        color: #1f2937;
+        color: #111827;
     }
     .stApp {
-        max-width: 760px;
+        max-width: 750px;
         margin: auto;
         padding: 2rem 1rem;
         background-color: #ffffff;
-        border-radius: 14px;
-        box-shadow: 0px 2px 20px rgba(0,0,0,0.05);
     }
     h1, h2, h3, h4 {
         color: #111827;
-        font-weight: 600;
+        font-weight: 700;
         margin-bottom: 0.5rem;
+    }
+    label, .stTextInput label, .stNumberInput label, .stCheckbox label {
+        color: #1f2937 !important;
+        font-size: 1rem;
+        font-weight: 500;
     }
     .stTextInput input, .stNumberInput input {
         background-color: #f9fafb;
         border: 1px solid #d1d5db;
-        padding: 0.5rem;
+        padding: 0.6rem;
         border-radius: 8px;
         color: #111827;
     }
@@ -42,15 +44,10 @@ st.markdown("""
         border-radius: 8px;
         margin-top: 1rem;
     }
-    .stCheckbox label {
-        color: #374151;
-        font-weight: 500;
-    }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Tool Picker
-tool = st.sidebar.radio("Select a Tool", [
+tool = st.sidebar.radio("Tool", [
     "Chlorine & pH Dosing",
     "CYA Calculator",
     "Salt Calculator",
@@ -58,7 +55,6 @@ tool = st.sidebar.radio("Select a Tool", [
     "Chem Strip Analyzer"
 ])
 
-# Core Calculations
 def calculate_pool_chemicals(volume, current_chlorine, current_ph, cya=50, has_algae=False):
     if has_algae:
         target_chlorine = 12
@@ -92,7 +88,6 @@ def analyze_chem_strip(image):
         "TA": random.randint(50, 150)
     }
 
-# Tools
 if tool == "Chlorine & pH Dosing":
     st.title("Chlorine & pH Optimizer")
     with st.form("form1"):
