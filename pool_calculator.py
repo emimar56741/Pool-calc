@@ -5,43 +5,39 @@ import random
 
 st.set_page_config(page_title="Clear Pool Co", layout="centered")
 
-# High-contrast fix for all mobile readability issues
+# Absolute high-contrast styling
 st.markdown("""
     <style>
-    body {
+    body, .stApp {
         background-color: #ffffff;
         font-family: 'Segoe UI', sans-serif;
-        color: #111827;
-    }
-    .stApp {
-        max-width: 750px;
-        margin: auto;
-        padding: 2rem 1rem;
-        background-color: #ffffff;
+        color: #000000;
     }
     h1, h2, h3, h4 {
-        color: #111827;
+        color: #000000;
         font-weight: 700;
-        margin-bottom: 0.5rem;
     }
     label, .stTextInput label, .stNumberInput label, .stCheckbox label {
-        color: #1f2937 !important;
+        color: #000000 !important;
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
     }
     .stTextInput input, .stNumberInput input {
-        background-color: #f9fafb;
-        border: 1px solid #d1d5db;
+        background-color: #ffffff;
+        border: 1px solid #000000;
         padding: 0.6rem;
         border-radius: 8px;
-        color: #111827;
+        color: #000000;
     }
     .stButton>button {
-        background-color: #2563eb;
+        background-color: #000000;
         color: white;
         font-weight: 600;
         padding: 0.5rem 1.25rem;
         border-radius: 8px;
+        margin-top: 1rem;
+    }
+    .stCheckbox {
         margin-top: 1rem;
     }
     </style>
